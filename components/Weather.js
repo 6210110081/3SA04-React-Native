@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import Forecast from './ForeCast'
 
 import Constants from 'expo-constants';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
@@ -11,6 +10,24 @@ export default function Weather(props) {
         description: '-',
         temp: 0,
     })
+
+    useEffect(() => {
+        console.log(`fetching data with zipCode = ${props.zipCode}`)
+        if (props.zipCode) {
+            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${props.zipCode},th&units=metric&APPID=d8effebf92cc73eecf51023b45f5ea6a`)
+                .then((response) => response.json()).then((json) => {
+                    setForecastInfo({
+                        main: json.weather[0].main,
+                        description: json.weather[0].description,
+                        temp: json.main.temp
+                    });
+                })
+                .catch((error) => {
+                    console.warn(error);
+                });
+        }
+    }, [props.zipCode])
+
     return (
         <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
             <View style={styles.view}>
@@ -33,10 +50,10 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     view: {
-        textAlignVertical:'auto',
+        textAlignVertical: 'auto',
         paddingTop: Constants.statusBarHeight,
         flex: 1,
-        backgroundColor:'blue'
+        backgroundColor: 'blue'
     },
     empty: {
         flex: 2,

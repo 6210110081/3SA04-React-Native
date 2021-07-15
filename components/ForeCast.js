@@ -6,9 +6,7 @@ import Constants from 'expo-constants'
 export default function Forecast(props) {
     return (
         <View style={styles.underTextWeather}>
-            <Text style={styles.textMain}>Main</Text>
             <Text style={styles.textMain}>{props.main}</Text>
-            <Text style={styles.textDescription}>description</Text>
             <Text style={styles.textDescription}>{props.description}</Text>
             <Text style={styles.textC}>{props.temp} °C</Text>
         </View>
