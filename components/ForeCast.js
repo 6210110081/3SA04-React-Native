@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export default function Forecast(props) {
     return (
         <View>
-            <Text>Main</Text>
+            <Text style={styles.textWeather}>Main</Text>
             <Text style={styles.textWeather}>{props.main}</Text>
             <Text style={styles.textWeather}>description</Text>
             <Text style={styles.textWeather}>{props.description}</Text>
@@ -16,9 +16,9 @@ export default function Forecast(props) {
 
 const styles = StyleSheet.create({
     textWeather: {
-        flex: 1
+        // flex: 1
     },
     underTextWeather: {
-        flex: 4
+        // flex: 4
     }
 })
