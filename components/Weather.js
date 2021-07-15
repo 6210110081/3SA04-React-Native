@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
         backgroundColor:'blue'
     },
     empty: {
-        flex: 2
+        flex: 2,
     }
 })
