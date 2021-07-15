@@ -1,24 +1,39 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
+import Constants from 'expo-constants'
+
 export default function Forecast(props) {
     return (
-        <View>
-            <Text style={styles.textWeather}>Main</Text>
-            <Text style={styles.textWeather}>{props.main}</Text>
-            <Text style={styles.textWeather}>description</Text>
-            <Text style={styles.textWeather}>{props.description}</Text>
-            <Text style={styles.textWeather}>{props.temp} °C</Text>
-            <Text style={styles.underTextWeather}></Text>
+        <View style={styles.underTextWeather}>
+            <Text style={styles.textMain}>Main</Text>
+            <Text style={styles.textMain}>{props.main}</Text>
+            <Text style={styles.textDescription}>description</Text>
+            <Text style={styles.textDescription}>{props.description}</Text>
+            <Text style={styles.textC}>{props.temp} °C</Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    textWeather: {
-        // flex: 1
+    textMain: {
+        paddingTop:Constants.statusBarHeight,
+        fontSize: 30,
+        color: 'white',
+        textAlign: 'center'
+    },
+    textDescription: {
+        fontSize: 20,
+        color: 'white',
+        textAlign: 'center'
+    },
+    textC: {
+        fontSize: 30,
+        color: 'white',
+        textAlign: 'center'
     },
     underTextWeather: {
-        // flex: 4
+        flex:1,
+        justifyContent: 'space-between'
     }
 })

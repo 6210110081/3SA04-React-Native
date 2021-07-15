@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { ImageBackground, StyleSheet, Text } from 'react-native'
+import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import Forecast from './ForeCast'
 
 import Constants from 'expo-constants';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
@@ -12,8 +13,11 @@ export default function Weather(props) {
     })
     return (
         <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
-            <Text>Zip Code is {props.zipCode}</Text>
-            <Forecast {...forecastInfo} />
+            <View style={styles.view}>
+                <Text style={styles.zipcodeText}>Zip Code is {props.zipCode}</Text>
+                <Forecast {...forecastInfo} />
+            </View>
+            <View style={styles.empty}></View>
         </ImageBackground>
     )
 }
@@ -25,10 +29,16 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     zipcodeText: {
-        flex: 1,
-        justifyContent: 'space-between',
-        textAlignVertical: 'center',
-        fontSize: 30,
+        fontSize: 20,
         color: 'white'
     },
+    view: {
+        textAlignVertical:'auto',
+        paddingTop: Constants.statusBarHeight,
+        flex: 1,
+        backgroundColor:'blue'
+    },
+    empty: {
+        flex: 2
+    }
 })
