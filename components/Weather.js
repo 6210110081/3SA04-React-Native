@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { ImageBackground, StyleSheet, Text } from 'react-native'
 import Forecast from './ForeCast'
 
+import Constants from 'expo-constants';
+
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: '-',
@@ -10,8 +12,7 @@ export default function Weather(props) {
     })
     return (
         <ImageBackground source={require('../bg.jpg')} style={styles.backdrop}>
-            <Text>Zip Code</Text>
-            <Text>{props.zipCode}</Text>
+            <Text style={styles.zipcodeText}>Zip Code is {props.zipCode}</Text>
             <Forecast {...forecastInfo} />
         </ImageBackground>
     )
@@ -19,8 +20,10 @@ export default function Weather(props) {
 
 const styles = StyleSheet.create({
     backdrop: {
-        alignItems:'center',
+        alignItems: 'center',
         width: '100%',
         height: '100%',
+    },
+    zipcodeText: {
     }
 })
