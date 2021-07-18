@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import Forecast from './ForeCast'
 
-import Constants from 'expo-constants';
-
 export default function Weather(props) {
     const [forecastInfo, setForecastInfo] = useState({
         main: '-',
@@ -34,28 +32,25 @@ export default function Weather(props) {
                 <Text style={styles.zipcodeText}>Zip Code is {props.zipCode}</Text>
                 <Forecast {...forecastInfo} />
             </View>
-            <View style={styles.empty}></View>
         </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
+
     backdrop: {
-        alignItems: 'center',
         width: '100%',
         height: '100%',
     },
     zipcodeText: {
         fontSize: 20,
-        color: 'white'
+        color: 'white',
     },
     view: {
-        textAlignVertical: 'auto',
-        paddingTop: Constants.statusBarHeight,
-        flex: 1,
-        backgroundColor: 'blue'
+        flexDirection:'column',
+        alignItems:'center',
+        width: '100%',
+        height: '50%',
+        backgroundColor: 'rgba(52, 52, 52, 0.8)',
     },
-    empty: {
-        flex: 2,
-    }
 })

@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="caabb8e8-d1ed-4c33-9c2c-9e8f337c2e41" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ForeCast.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ForeCast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Weather.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Weather.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +45,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="93" y="93" width="1350" height="630" key="AVDManager" timestamp="1626318390929">
+    <state x="93" y="93" width="1350" height="630" key="AVDManager" timestamp="1626614491561">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="93" y="93" width="1350" height="630" key="AVDManager/0.0.1536.816/1920.0.1536.816@0.0.1536.816" timestamp="1626318390929" />
+    <state x="93" y="93" width="1350" height="630" key="AVDManager/0.0.1536.816/1920.0.1536.816@0.0.1536.816" timestamp="1626614491561" />
     <state x="277" y="53" key="SettingsEditor" timestamp="1626318353126">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
