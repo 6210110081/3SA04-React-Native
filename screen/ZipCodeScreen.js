@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { FlatList, StyleSheet, Text, TouchableHighlight, View } from 'react-native'
+import { FlatList, Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native'
+import Card from 'react-native-card-component'
 
 const availableZipItems = [
     { place: 'Hatyai', code: '90110' },
@@ -11,37 +12,56 @@ const availableZipItems = [
 ]
 
 const ZipItem = ({ place, code, navigation }) => (
-    <TouchableHighlight onPress={() => {
-        navigation.navigate('Weather', { zipCode: code })
-    }}>
-        <View style={styles.zipItem}>
-            <Text>{place}</Text>
-            <Text>{code}</Text>
+    <Card >
+        <View style={styles.flatlist}>
+            <TouchableHighlight activeOpacity={0.5} underlayColor="#29b6f6" activeOpacity={0.5} onPress={() => {
+                navigation.navigate('Weather', { zipCode: code })
+            }}>
+                <View style={styles.zipItem}>
+                    <Text style={styles.zipPlace}>{place}</Text>
+                    <Text style={styles.zipCode}>{code}</Text>
+                </View>
+            </TouchableHighlight>
         </View>
-    </TouchableHighlight>
+    </Card>
 )
 
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <FlatList
-            data={availableZipItems}
-            keyExtractor={item => item.code}
-            renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
-        />
+        <View>
+            <View style={styles.view} >
+                <Image source={require('../image/weather_dribbble_size.gif')} style={styles.image} />
+            </View>
+            <FlatList
+                data={availableZipItems}
+                keyExtractor={item => item.code}
+                renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
+            />
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     zipItem: {
-        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
     },
     zipPlace: {
-        flex: 1
+        flex: 1,
+        fontSize: 30,
     },
     zipCode: {
-        flex: 1
+        flex: 1,
+        fontSize: 25,
+    },
+    image: {
+        width: '80%',
+        height: '60%',
+    },
+    flatlist: {
+    },
+    view: {
+        alignItems: 'center',
+        width: '100%'
     }
 })
