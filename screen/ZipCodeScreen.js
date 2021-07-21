@@ -36,7 +36,7 @@ const ZipItem = ({ place, code, navigation }) => (
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <ImageBackground source={require('../image/bgHome.jpg')} style={styles.bg}>
+        <ImageBackground source={require('../image/bg.gif')} style={styles.bg}>
             <View >
                 <View style={styles.view} >
                     <Image source={require('../image/homeTop.jpg')} style={styles.image} />
