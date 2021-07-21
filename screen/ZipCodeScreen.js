@@ -72,17 +72,18 @@ const styles = StyleSheet.create({
         width: '80%',
     },
     view: {
-        height:'30%',
-        justifyContent:'center',
+        height: '30%',
+        justifyContent: 'center',
         alignItems: 'center',
     },
     card: {
+        margin: 15,
         alignItems: 'center',
         backgroundColor:'green'
     },
-    columnEvenly:{
-        height:'70%',
-        width:'100%',
+    columnEvenly: {
+        height: '70%',
+        width: '100%',
         backgroundColor:'red'
-    }
+    },
 })
