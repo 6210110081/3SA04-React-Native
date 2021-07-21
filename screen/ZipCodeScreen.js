@@ -12,32 +12,40 @@ const availableZipItems = [
 ]
 
 const ZipItem = ({ place, code, navigation }) => (
-    <Card >
-        <View style={styles.flatlist}>
-            <TouchableHighlight activeOpacity={0.5} underlayColor="#29b6f6" activeOpacity={0.5} onPress={() => {
-                navigation.navigate('Weather', { zipCode: code })
-            }}>
-                <View style={styles.zipItem}>
-                    <Text style={styles.zipPlace}>{place}</Text>
-                    <Text style={styles.zipCode}>{code}</Text>
-                </View>
-            </TouchableHighlight>
+    <View style={styles.card}>
+        <View style={styles.row}>
+            <Card>
+                <TouchableHighlight activeOpacity={0.5} underlayColor="#29b6f6" activeOpacity={0.5} onPress={() => {
+                    navigation.navigate('Weather', { zipCode: code })
+                }}>
+                    <View style={styles.zipItem}>
+                        <View style={styles.flex}>
+                            <Text style={styles.zipPlace}>{place}</Text>
+                        </View>
+                        <View style={styles.flex}>
+                            <Text style={styles.zipCode}>{code}</Text>
+                        </View>
+                    </View>
+                </TouchableHighlight>
+            </Card>
         </View>
-    </Card>
+    </View>
 )
 
 export default function ZipCodeScreen() {
     const navigation = useNavigation()
     return (
-        <View>
+        <View >
             <View style={styles.view} >
                 <Image source={require('../image/weather_dribbble_size.gif')} style={styles.image} />
             </View>
-            <FlatList
-                data={availableZipItems}
-                keyExtractor={item => item.code}
-                renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
-            />
+            <View style={styles.columnEvenly}>
+                <FlatList
+                    data={availableZipItems}
+                    keyExtractor={item => item.code}
+                    renderItem={({ item }) => <ZipItem {...item} navigation={navigation} />}
+                />
+            </View>
         </View>
     )
 }
@@ -46,22 +54,35 @@ const styles = StyleSheet.create({
     zipItem: {
         flexDirection: 'row',
     },
-    zipPlace: {
+    flex: {
         flex: 1,
+        alignItems: 'center',
+    },
+    zipPlace: {
         fontSize: 30,
     },
     zipCode: {
-        flex: 1,
         fontSize: 25,
     },
     image: {
-        width: '80%',
-        height: '60%',
+        width: '90%',
+        height: '90%',
     },
-    flatlist: {
+    row: {
+        width: '80%',
     },
     view: {
+        height:'30%',
+        justifyContent:'center',
         alignItems: 'center',
-        width: '100%'
+    },
+    card: {
+        alignItems: 'center',
+        backgroundColor:'green'
+    },
+    columnEvenly:{
+        height:'70%',
+        width:'100%',
+        backgroundColor:'red'
     }
 })
