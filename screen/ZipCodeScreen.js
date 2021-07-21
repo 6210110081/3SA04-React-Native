@@ -39,7 +39,7 @@ export default function ZipCodeScreen() {
         <ImageBackground source={require('../image/bgHome.jpg')} style={styles.bg}>
             <View >
                 <View style={styles.view} >
-                    <Image source={require('../image/weather_dribbble_size.gif')} style={styles.image} />
+                    <Image source={require('../image/homeTop.jpg')} style={styles.image} />
                 </View>
                 <View style={styles.columnEvenly}>
                     <FlatList
