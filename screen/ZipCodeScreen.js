@@ -56,6 +56,15 @@ export default function ZipCodeScreen() {
 const styles = StyleSheet.create({
     card: {
         backgroundColor: 'rgba(52, 52, 52, 0.7)',
+        shadowColor: "#ffffff",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+
+        elevation: 10,
     },
     bg: {
         width: '100%',
@@ -66,15 +75,17 @@ const styles = StyleSheet.create({
         height: 50,
         flexDirection: 'row',
     },
-    flex: {
-        flex: 1,
-        alignItems: 'center',
-    },
     zipPlace: {
+        color: 'white',
         fontSize: 30,
     },
     zipCode: {
+        color: 'white',
         fontSize: 25,
+    },
+    flex: {
+        flex: 1,
+        alignItems: 'center',
     },
     image: {
         width: '90%',
